@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Permobilus.com</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/instantsearch.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
+  <script src="js/instantsearch.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+  <header class="content-wrapper">
+    <a href="http://permobilus.com" class="is-logo"><img src="img/permobil-logo.png" width="200"></a>
+    <a href="./" class="logo"></a>
+
+    <div class="input-group">
+      <input type="text" class="form-control" id="q" />
+      <span class="input-group-btn">
+        <button class="btn btn-default"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+
+    <aside>
+      <div id="clear-all"></div>
+
+      <section class="facet-wrapper">
+        <div class="facet-category-title" class="facet">Product Lines</div>
+        <div id="categories"></div>
+      </section>
+
+      <section class="facet-wrapper">
+        <div class="facet-category-title">Primary Filter</div>
+        <div id="types" class="facet"></div>
+        <div id="brands" class="facet"></div> 
+      </section>
+      <section class="facet-wrapper">
+        <div class="facet-category-title">Secondary Filter</div>
+        <div id="types" class="facet"></div>
+        <div id="brands" class="facet"></div> 
+      </section>
+  
+    </aside>
+
+    <div class="results-wrapper">
+      <section id="results-topbar">
+        <div class="sort-by">
+          <label></label>
+          <div id="sort-by-selector"></div>
+        </div>
+
+        <div id="stats" class="text-muted"></div>
+      </section>
+
+      <main id="hits"></main>
+      <section id="pagination"></section>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js" async></script>
+<script src="js/search.js"></script>
+</body>
