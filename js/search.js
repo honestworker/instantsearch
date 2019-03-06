@@ -9,6 +9,7 @@ var search = instantsearch({
   routing: true
 });
 
+
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#q',
@@ -62,7 +63,7 @@ var facetTemplateColors =
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
-    hitsPerPage: 4,
+    hitsPerPage: 5,
     templates: {
       empty: noResultsTemplate,
       item: hitTemplate
@@ -94,15 +95,118 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.hierarchicalMenu({
     container: '#categories',
-    limit: 3,
+    limit: 5,
     attributes: [
-      'taxonomies_hierarchical.product_cat.lvl0'
+      'taxonomies_hierarchical.product_cat.lvl0',
+      'taxonomies_hierarchical.product_cat.lvl1',
+      'taxonomies_hierarchical.product_cat.lvl2',
+      'taxonomies_hierarchical.product_cat.lvl3'
     ],
     sortBy: ['name:asc'],
     templates: {
       item: menuTemplate
+    },
+
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hierarchicalMenu({
+    container: '#age',
+    // limit: 3,
+    attributes: [
+      'taxonomies.product_tag'
+    ],
+    // defaultRefinement: [
+    //   'age'
+    // ],
+    sortBy: ['name:asc'],
+    templates: {
+      item: facetTemplateCheckbox
     }
   })
 );
+
+search.addWidget(
+  instantsearch.widgets.hierarchicalMenu({
+    container: '#material',
+    // limit: 3,
+    attributes: [
+      'taxonomies.pa_mwc_material'
+    ],
+    sortBy: ['name:asc'],
+    templates: {
+      item: facetTemplateCheckbox
+    }
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hierarchicalMenu({
+    container: '#frm_style',
+    // limit: 3,
+    attributes: [
+      'taxonomies.pa_mwc_type'
+    ],
+    sortBy: ['name:asc'],
+    templates: {
+      item: facetTemplateCheckbox
+    }
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hierarchicalMenu({
+    container: '#fld_type',
+    // limit: 3,
+    attributes: [
+      'taxonomies.pa_tube'
+    ],
+    sortBy: ['name:asc'],
+    templates: {
+      item: facetTemplateCheckbox
+    }
+  })
+);
+// search.addWidget(
+//      instantsearch.widgets.refinementList({
+//        container: '#test',
+//        attributeName: 'taxonomies.pa_mwc_material',
+//        operator: 'or',
+//        limit: 10,
+//       //  templates: {
+//       //    header: 'Brands'
+//       //  },
+//       //  checkbox:['taxonomies.pa_mwc_material']
+//      })
+//    );
+
+// instantsearch.widgets.refinementList({
+//   container: '#test',
+//   attributes: [
+//     'taxonomies.product_tag'
+//   ],
+//   operator: 'or',
+//     limit: 10,
+//   templates: {
+//     header: 'Brands'
+//   }
+// });
+
+// const ClearQuery = ({refine}) => {
+//   const onClick = ev => {
+//     refine('');
+//     ev.stopPropagation();
+//   };
+//   return <div onClick={onClick}><ConnectedClearAllRefinements/></div>;
+// };
+
+// const ClearAllRefinements = ({refine, items}) => {
+//   const onClick = () => refine(items);
+//   return <button onClick={onClick}>ClearAll</button>;
+// };
+
+// const ClearQueryAndRefinements = connectSearchBox(ClearQuery);
+// const ConnectedClearAllRefinements = connectCurrentRefinements(ClearAllRefinements);
 
 search.start();
