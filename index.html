@@ -7,100 +7,84 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/instantsearch.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
-  <script src="js/instantsearch.min.js"></script>
+  <script src="js/instantsearch.js"></script>
 </head>
 <body>
   <div class="container-fluid">
-  <header class="content-wrapper">
-    <a href="http://permobilus.com" class="is-logo"><img src="img/permobil-logo.png" width="200"></a>
-    <a href="./" class="logo"></a>
+    <header class="content-wrapper">
+      <a href="http://permobilus.com" class="is-logo"><img src="img/permobil-logo.png" width="200"></a>
+      <a href="./" class="logo"></a>
 
-    <div class="input-group">
-      <input type="text" class="form-control" id="q" />
-      <span class="input-group-btn">
-        <button class="btn btn-default"><i class="fa fa-search"></i></button>
-      </span>
-    </div>
-  </header>
+      <div class="input-group">
+        <input type="text" class="form-control" id="q" />
+        <span class="input-group-btn">
+          <button class="btn btn-default"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+    </header>
 
   <div class="content-wrapper">
-
     <aside>
-      <div id="clear-all"></div>
-
+<!-- Left Menu -->
+      <div id="clear-all"></div>   
       <section class="facet-wrapper">
-        <div class="facet-category-title" class="facet">Product Lines</div>
+        <div class="facet-category-title facet">Product Lines</div>
         <div id="categories"></div>
       </section>
 
       <section class="facet-wrapper">
         <div class="facet-category-title">Primary Filter</div>
-        <div class="facet menu_title">Age
-          <div id="age"></div>
+        <div class="ais-root ais-refinement-list ais-root__collapsible">
+          <div class="ais-refinement-list--header ais-header">Age</div>
+          <div id="age" class="filter_title"></div>
         </div>
-
-        <div class="facet menu_title">Height(cm)
-          <div id="height"></div>
-        </div> 
-
-        <div class="facet menu_title">Weight(kg)
-          <div id="weight"></div>
-        </div> 
-
-        <div class="facet menu_title">Dignostic
-          <div id="dignostic"></div>
-        </div>
-
-        <div class="facet menu_title">How do you move?
-          <div id="phy_condition"></div>
-        </div> 
-        <div id="tags" class="facet"></div> 
+       
+          <!-- <div id="height"></div> -->
+          <!-- <div id="weight"></div> -->
+          <div class="ais-root ais-refinement-list ais-root__collapsible">
+            <div class="ais-refinement-list--header ais-header">Dignostic</div>
+            <div id="dignostic" class="filter_title"></div>
+          </div>
+          <!-- <div id="phy_condition"></div> -->
       </section>
 
       <section class="facet-wrapper">
         <div class="facet-category-title">Secondary Filter</div>
-
-        <div class="facet">Material
-          <div id="material"></div>
-        </div>
-
-        <div class="facet">Frame Style
-          <div id="frm_style"></div>
-        </div>
-
-        <div class="facet">Folding Back/Rgid Frame Style
-          <div id="fld_type"></div>
-        </div>
-
-        <div class="facet">Ergonomic Seat
-          <div id="seat"></div>
-        </div> 
-
-        <div id="materials" class="facet"></div>
-        <div id="brands" class="facet"></div> 
+          <div id="material" class="filter_title"></div>
+          <div id="frm_style" class="filter_title"></div>
+          <div id="fld_type" class="filter_title"></div>
+          <!-- <div id="seat"></div> -->
       </section>
-      <ClearQueryAndRefinements />
-  
+<!-- test part -->
+      <!-- <section class="facet-wrapper">
+        <div class="facet-category-title">Test Filter</div>
+
+          <div id="test"></div>
+
+      </section> -->
+ <!-- end test  -->
     </aside>
 
-    <div class="results-wrapper">
-      <section id="results-topbar">
-        <div class="sort-by">
-          <label></label>
-          <div id="sort-by-selector"></div>
-        </div>
+<!-- End Menu -->
+<!-- Product Part -->
+      <div class="results-wrapper">
+        <section id="results-topbar">
+          <div class="sort-by">
+            <label></label>
+            <div id="sort-by-selector"></div>
+          </div>
 
-        <div id="stats" class="text-muted"></div>
-      </section>
+          <div id="stats" class="text-muted"></div>
+        </section>
 
-      <main id="hits"></main>
-      <section id="pagination"></section>
+        <main id="hits"></main>
+        <section id="pagination"></section>
+      </div>
     </div>
-
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js" async></script>
-<script src="js/search.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script language="JavaScript" src="js/search.js"></script>
 </body>
